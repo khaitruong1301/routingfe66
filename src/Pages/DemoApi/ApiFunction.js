@@ -1,29 +1,32 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
-
-
-
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { layDanhSachPhimAction } from '../../redux/action/QuanLyPhimActions';
 export default function ApiFunction() {
 
-    const [arrPhim, setArrPhim] = useState([]);
-
+    const { arrPhim } = useSelector(state => state.QuanLyPhimReducer);
+    const dispatch = useDispatch();
     useEffect(() => {
-        let promise = axios({
-            url: 'http://movieapi.cyberlearn.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
-            method: 'GET'
-        });
-        //Xử lý thành công
-        promise.then((result) => {
-            console.log('result', result.data);
-            //Sau khi lấy dữ liệu từ api trả về => đưa vào state thông qua hàm setState
-            setArrPhim(result.data.content)
-        });
-        //Xử lý thất bại
-        promise.catch((errors) => {
-            console.log('errors', errors.response?.data);
-        })
+
+        /*
+            dispatch(action): 
+            + action1: object {type:'ten_action', payload: data}
+            + action2: function (callback) => thực thi xong mới có kết quả để dispatch
+
+        */
+
+        //Gọi 1 hàm kết quả trả về là 1 hàm chưa gọi(callback function) closure function
+        const action = layDanhSachPhimAction('GP01');
+
+        dispatch(action);
+
+
+
+
+
+
     }, []);
-    
+
     const renderPhim = () => {
         return arrPhim.map((phim, index) => {
             return <div className="col-4 mt-2" key={index}>

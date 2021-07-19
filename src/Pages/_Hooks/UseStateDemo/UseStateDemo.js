@@ -10,6 +10,14 @@ export default function UseStateDemo(props) {
     */
     let [state, setState] = useState({ like: 1 });
     const handleLike = () => {
+
+        // setState((state)=>{
+        //     state.like + 2;
+
+        //     return {...state}
+        // })
+
+
         setState({ 
             like: state.like + 1 
         });

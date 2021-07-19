@@ -13,6 +13,8 @@ import DemoUseEffect from './Pages/_Hooks/DemoUseEffect/DemoUseEffect';
 import ApiReactClass from './Pages/DemoApi/ApiReactClass';
 import ApiFunction from './Pages/DemoApi/ApiFunction';
 import DemoHookRedux from './Pages/_Hooks/HookRedux/DemoHookRedux';
+import Details from './Pages/Details/Details';
+import LoginFormik from './Pages/Login/LoginFormik';
 
 export default function App() {
   return (
@@ -31,6 +33,10 @@ export default function App() {
         <Route exact path='/demohookredux' component={DemoHookRedux} />
 
         <Route exact path='/apiclass' component={ApiReactClass} />
+
+        <Route exact path="/loginform" component={LoginFormik} />
+
+        <Route exact path='/detail/:id' component={Details} />
 
 
         <Route exact path='/apifunction' component={ApiFunction} />
