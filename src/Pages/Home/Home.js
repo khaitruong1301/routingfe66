@@ -1,13 +1,17 @@
 import React from 'react'
+import HomeCarousel from '../../Components/Carousel/HomeCarousel';
+import SlickCarousel from '../../Components/SlickCarousel/SlickCarousel';
 
 export default function Home(props) {
 
     console.log('propsRoute',props);
 
     return (
-        <div className="container">
-            Home
-
+        <div>
+            
+            <HomeCarousel />
+            
+            <SlickCarousel />
             
 
 

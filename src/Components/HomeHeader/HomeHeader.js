@@ -22,6 +22,10 @@ export default function HomeHeader(props) {
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/login" activeClassName="bg-white text-dark" activeStyle={{border:'1px solid red'}}>Login</NavLink>
                     </li>
+
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/demohoc" activeClassName="bg-white text-dark" activeStyle={{border:'1px solid red'}}>Demo HOC</NavLink>
+                    </li>
                   
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hooks</a>

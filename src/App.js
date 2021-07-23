@@ -3,7 +3,7 @@ import Home from './Pages/Home/Home';
 import HomeHeader from './Components/HomeHeader/HomeHeader';
 
 //Cấu hình route
-import { BrowserRouter, Route,Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Login from './Pages/Login/Login';
@@ -15,33 +15,36 @@ import ApiFunction from './Pages/DemoApi/ApiFunction';
 import DemoHookRedux from './Pages/_Hooks/HookRedux/DemoHookRedux';
 import Details from './Pages/Details/Details';
 import LoginFormik from './Pages/Login/LoginFormik';
+import DemoHoc from './Pages/HOC/DemoHoc';
+import Modal from './Pages/HOC/Modal';
+import { HomeTemplate } from './Templates/Home/HomeTemplate';
+import { UserTemplate } from './Templates/UserTemplate/UserTemplate';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <HomeHeader />
+      <Modal />
       <Switch>
-        <Route exact path='/home' component={Home} />
-        <Route exact path='/about' component={About} />
-        <Route exact path='/contact' component={Contact} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/profile' component={Profile} />
-        <Route exact path='/usestate' component={UseStateDemo} />
-        <Route exact path='/useeffect' component={DemoUseEffect} />
+        
 
+        <HomeTemplate path="/home" component={Home} />
 
-        <Route exact path='/demohookredux' component={DemoHookRedux} />
+        
+        <HomeTemplate  path='/about' component={About} />
+        <HomeTemplate  path='/contact' component={Contact} />
+        <HomeTemplate exact path='/profile' component={Profile} />
+        <HomeTemplate exact path='/usestate' component={UseStateDemo} />
+        <HomeTemplate exact path='/useeffect' component={DemoUseEffect} />
+        <HomeTemplate exact path='/demohookredux' component={DemoHookRedux} />
+        <HomeTemplate exact path='/apiclass' component={ApiReactClass} />
+        <HomeTemplate exact path="/loginform" component={LoginFormik} />
+        <HomeTemplate exact path='/detail/:id' component={Details} />
+        <HomeTemplate exact path='/demohoc' component={DemoHoc} />
+        <HomeTemplate exact path='/apifunction' component={ApiFunction} />
+        <UserTemplate exact path='/login' component={Login} />
+      
 
-        <Route exact path='/apiclass' component={ApiReactClass} />
-
-        <Route exact path="/loginform" component={LoginFormik} />
-
-        <Route exact path='/detail/:id' component={Details} />
-
-
-        <Route exact path='/apifunction' component={ApiFunction} />
-
-        <Route exact path='/' component={Home} />
+        <HomeTemplate exact path='/' component={Home} />
       </Switch>
 
 

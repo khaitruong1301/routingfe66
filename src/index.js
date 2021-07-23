@@ -6,8 +6,12 @@ import reportWebVitals from './reportWebVitals';
 //Sử dụng redux
 import { Provider } from 'react-redux';
 import { store } from './redux/configStore';
-
-
+//Sử dụng antd
+//npm i antd
+import '../node_modules/antd/dist/antd.css'; // or 'antd/dist/antd.less'
+//slick carousel
+import "../node_modules/slick-carousel/slick/slick.css"; 
+import "../node_modules/slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
   <Provider store={store}>

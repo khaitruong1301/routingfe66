@@ -2,10 +2,11 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { FakeBookAppReducer } from "./Reducer/FakeBookAppReducer";
 import { QuanLyPhimReducer } from "./Reducer/QuanLyPhimReducer";
 import reduxThunk from 'redux-thunk'
-
+import { ModalReducer } from "./Reducer/ModalReducer";
 const rootReducer = combineReducers({
     FakeBookAppReducer,
-    QuanLyPhimReducer
+    QuanLyPhimReducer,
+    ModalReducer
 });
 
 
