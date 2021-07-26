@@ -3,10 +3,12 @@ import { FakeBookAppReducer } from "./Reducer/FakeBookAppReducer";
 import { QuanLyPhimReducer } from "./Reducer/QuanLyPhimReducer";
 import reduxThunk from 'redux-thunk'
 import { ModalReducer } from "./Reducer/ModalReducer";
+import { QuanLyNguoiDungReducer } from "./Reducer/QuanLyNguoiDungReducer";
 const rootReducer = combineReducers({
     FakeBookAppReducer,
     QuanLyPhimReducer,
-    ModalReducer
+    ModalReducer,
+    QuanLyNguoiDungReducer
 });
 
 

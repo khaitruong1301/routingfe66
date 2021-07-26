@@ -3,7 +3,6 @@ import Home from './Pages/Home/Home';
 import HomeHeader from './Components/HomeHeader/HomeHeader';
 
 //Cấu hình route
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Login from './Pages/Login/Login';
@@ -19,10 +18,17 @@ import DemoHoc from './Pages/HOC/DemoHoc';
 import Modal from './Pages/HOC/Modal';
 import { HomeTemplate } from './Templates/Home/HomeTemplate';
 import { UserTemplate } from './Templates/UserTemplate/UserTemplate';
+import Register from './Pages/Register/Register';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+
+//Tạo ra đối tượng giúp chuyển hướng trang ở bất kì file nào trong phạm vi app
+import {createBrowserHistory} from 'history'
+
+export const history = createBrowserHistory();
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <Modal />
       <Switch>
         
@@ -40,6 +46,8 @@ export default function App() {
         <HomeTemplate exact path="/loginform" component={LoginFormik} />
         <HomeTemplate exact path='/detail/:id' component={Details} />
         <HomeTemplate exact path='/demohoc' component={DemoHoc} />
+        <HomeTemplate exact path='/register' component={Register} />
+
         <HomeTemplate exact path='/apifunction' component={ApiFunction} />
         <UserTemplate exact path='/login' component={Login} />
       
@@ -48,6 +56,6 @@ export default function App() {
       </Switch>
 
 
-    </BrowserRouter>
+    </Router>
   )
 }

@@ -1,20 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Redirect } from 'react-router'
-
+import { USER_LOGIN } from '../../util/settings';
+import {useDispatch, useSelector} from 'react-redux'
+import {  getProfileAction } from '../../redux/action/QuanLyNguoiDungActions';
 
 
 export default function Profile(props) {
 
+    const {profile} =  useSelector(state => state.QuanLyNguoiDungReducer);
+    const dispatch = useDispatch();
 
 
-    if(!localStorage.getItem('user')) {
+
+
+    useEffect(()=>{
+        //Bắt sự kiện sau khi render => call api
+        dispatch(getProfileAction())
+    },[])
+
+    if(!localStorage.getItem(USER_LOGIN)) {
         alert('Đăng nhập để vào trang này !');
         return <Redirect to='/login' />
     }
 
     return (
         <div>
-            profile
+            Hello ! {profile.hoTen}
         </div>
     )
 }
