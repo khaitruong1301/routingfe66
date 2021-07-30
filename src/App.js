@@ -23,6 +23,9 @@ import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 
 //Tạo ra đối tượng giúp chuyển hướng trang ở bất kì file nào trong phạm vi app
 import {createBrowserHistory} from 'history'
+import AdminTemplate from './Templates/AdminTemplate/AdminTemplate';
+import Films from './Pages/Admin/Films/Films';
+import CreateFilm from './Pages/Admin/CreateFilm.js/CreateFilm';
 
 export const history = createBrowserHistory();
 
@@ -50,7 +53,9 @@ export default function App() {
 
         <HomeTemplate exact path='/apifunction' component={ApiFunction} />
         <UserTemplate exact path='/login' component={Login} />
-      
+
+        <AdminTemplate exact path="/admin/films" component={Films} />
+        <AdminTemplate exact path="/admin/createfilm" component={CreateFilm} />
 
         <HomeTemplate exact path='/' component={Home} />
       </Switch>

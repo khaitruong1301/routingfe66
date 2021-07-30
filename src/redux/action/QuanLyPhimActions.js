@@ -1,4 +1,6 @@
 import axios from "axios";
+import { qlPhimService } from "../../services/QuanLyPhimService";
+import { GROUP_ID } from "../../util/settings";
 
 
 
@@ -44,6 +46,28 @@ export const layChiTietPhimAction = (maPhim) => {
                 type:'SET_CHI_TIET_PHIM',
                 chiTietPhim:result.data.content
             })
+
+        }catch(errors) {
+            console.log(errors.response?.data);
+        }
+
+    }
+
+}
+
+
+export const themPhimAction = (frmDataFilm) => {
+
+    return async (dispatch,getState) => {
+
+        try {
+            const result = qlPhimService.themPhimUploadHinh(frmDataFilm);
+
+            alert('Thêm phim thành công');
+
+            await dispatch(layDanhSachPhimAction(GROUP_ID));
+
+            
 
         }catch(errors) {
             console.log(errors.response?.data);
