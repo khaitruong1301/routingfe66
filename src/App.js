@@ -26,6 +26,7 @@ import {createBrowserHistory} from 'history'
 import AdminTemplate from './Templates/AdminTemplate/AdminTemplate';
 import Films from './Pages/Admin/Films/Films';
 import CreateFilm from './Pages/Admin/CreateFilm.js/CreateFilm';
+import ApiFunction_mobile from './Pages/DemoApi/ApiFunction_mobile';
 
 export const history = createBrowserHistory();
 
@@ -52,6 +53,10 @@ export default function App() {
         <HomeTemplate exact path='/register' component={Register} />
 
         <HomeTemplate exact path='/apifunction' component={ApiFunction} />
+        
+        
+        <HomeTemplate exact path='/films' component={ApiFunction} componentMobile={ApiFunction_mobile} />
+        
         <UserTemplate exact path='/login' component={Login} />
 
         <AdminTemplate exact path="/admin/films" component={Films} />
